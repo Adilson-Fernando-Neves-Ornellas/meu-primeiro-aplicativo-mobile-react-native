@@ -76,7 +76,7 @@ export default function Cadastro() {
             secureTextEntry
           />
           <View style={cadastroStyles.buttonContainer}>
-            <Button title="Entrar" onPress={cadastrar} />
+            <Button title="Cadastrar" onPress={cadastrar} />
             <Button title="Limpar" onPress={() => limpar()} />
           </View>
         </View>
