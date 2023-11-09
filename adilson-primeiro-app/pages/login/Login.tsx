@@ -36,6 +36,7 @@ const Login = () => {
       setIdUsuario(usuario.id)
       Alert.alert("Login efetuado com sucesso")
       // navigation.navigate("/pedidos/" + usuario.id as never);
+      limpar();
     } else {
       Alert.alert("Erro no login")
     }
@@ -43,6 +44,11 @@ const Login = () => {
   function sair(){
     setIsLoggedIn(false)
     setIdUsuario(0)
+  }
+
+  function limpar(){
+    setEmail('');
+    setSenha('')
   }
 
   return (
