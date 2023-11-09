@@ -15,7 +15,7 @@ interface Usuario {
 
 export default function Cadastro() {
   const navigation = useNavigation();
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn, setIsLoggedIn, setIdUsuario } = useContext(AuthContext);
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
@@ -31,6 +31,11 @@ export default function Cadastro() {
         navigation.navigate("login" as never);
       }
     }
+  }
+
+  function sair(){
+    setIsLoggedIn(false)
+    setIdUsuario(0)
   }
 
   function limpar(){
