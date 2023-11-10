@@ -1,16 +1,17 @@
 import { StyleSheet } from 'react-native';
 
 const ProdutoStyles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
+    containerCard:{
+      display:"flex",
       justifyContent: 'center',
-      gap: 10
-    },
-    buttonPageLogin:{
-      color: '#FF0000'
-    }
+      alignItems: 'center',
+      flexWrap: 'wrap',
+      overflowY: 'hidden',
+      padding: 20,
+      gap: 10,
+      objectFit: 'contain',
+      overflow: 'scroll'
+  }
 });
 
 export default ProdutoStyles;

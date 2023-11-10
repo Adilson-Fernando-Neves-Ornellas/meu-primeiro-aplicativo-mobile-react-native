@@ -1,25 +1,42 @@
-import { StatusBar } from 'expo-status-bar';
-import {Text, View, Button } from 'react-native';
+import {View} from 'react-native';
+import { useEffect, useContext } from 'react';
 import ProdutoStyles from './ProdutosStyle';
-import { useNavigation } from '@react-navigation/native';
+import CardProduto from '../../components/CardProdutos/CardProduto';
+import { AuthContext } from '../../Contexto/Context';
+import { api } from '../../api/api';
+import NavBar from '../../components/NavBar/NavBar';
 
 export default function Produtos() {
-  const navigation = useNavigation();
+  const {listaProduto, setListaProduto} = useContext(AuthContext)
 
-  function PageLogin() {
-    navigation.navigate('login');
-  }
+  const getProdutos = async () => {
+    const response = await api.get("/produtos");
+    const produtos = response.data;
+    setListaProduto(produtos);
+  };
+
+  useEffect(() => {
+    getProdutos();
+  }, []);
 
   return (
-    <View style={ProdutoStyles.container}>
-      <Text>Page Produtos</Text>
-      <Button
-        style={ProdutoStyles.buttonPageLogin}
-        title="Pagina de Login"
-        onPress={() => PageLogin()}
-      />
-      <StatusBar style="auto" />
+    <>
+    <NavBar/>
+    <View style={ProdutoStyles.containerCard}>
+      {listaProduto.map((produto) => (
+        <CardProduto
+        key={produto.id}
+        id={produto.id}
+        nome={produto.nome}
+        preco={produto.preco}
+        estoque={produto.estoque}
+        descricao={produto.descricao}
+        imgurl={produto.imgurl}
+        />
+        ))}
     </View>
+    </>
+
   );
 }
 
