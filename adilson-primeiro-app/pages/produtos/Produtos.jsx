@@ -1,4 +1,4 @@
-import {View} from 'react-native';
+import {View,FlatList} from 'react-native';
 import { useEffect, useContext } from 'react';
 import ProdutoStyles from './ProdutosStyle';
 import CardProduto from '../../components/CardProdutos/CardProduto';
@@ -22,19 +22,24 @@ export default function Produtos() {
   return (
     <>
     <NavBar/>
-    <View style={ProdutoStyles.containerCard}>
-      {listaProduto.map((produto) => (
-        <CardProduto
-        key={produto.id}
-        id={produto.id}
-        nome={produto.nome}
-        preco={produto.preco}
-        estoque={produto.estoque}
-        descricao={produto.descricao}
-        imgurl={produto.imgurl}
-        />
-        ))}
-    </View>
+      <FlatList
+        style={ProdutoStyles.containerCard}
+        // horizontal={true}
+        // initialNumToRender={5}
+        numColumns={3}
+        data={listaProduto}
+        renderItem={({ item }) => (
+          <CardProduto
+            key={item.id}
+            id={item.id}
+            nome={item.nome}
+            preco={item.preco}
+            estoque={item.estoque}
+            descricao={item.descricao}
+            imgurl={item.imgurl}
+          />
+        )}
+      />
     </>
 
   );

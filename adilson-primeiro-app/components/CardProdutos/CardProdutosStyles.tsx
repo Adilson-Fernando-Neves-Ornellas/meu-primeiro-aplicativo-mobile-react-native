@@ -15,7 +15,8 @@ const CardProdutosStyles = StyleSheet.create({
     shadowRadius: 0,
     elevation: 2,
     transitionProperty: 'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform',
-    transitionDuration: 200
+    transitionDuration: 200,
+    marginBottom: 10
   },
   containerImgProd: {
     display: 'flex',

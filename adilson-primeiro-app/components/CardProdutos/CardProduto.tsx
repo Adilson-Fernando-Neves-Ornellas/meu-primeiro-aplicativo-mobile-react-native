@@ -76,7 +76,7 @@ const CardProduto: React.FC<CardProdutoProps> = ({ id, nome, preco, estoque, img
       setQuantidadeProd(quantidadeProd + 1);
       setMensagemQuantidadeMaxPermitida('');
     } else {
-      setMensagemQuantidadeMaxPermitida('Quantidade máxima em Estoque');
+      setMensagemQuantidadeMaxPermitida('Quantidade máxima');
     }
   }
 

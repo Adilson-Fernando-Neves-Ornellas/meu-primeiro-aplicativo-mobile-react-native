@@ -15,7 +15,7 @@ const NavBar = () => {
   };
 
   const mostrarTodosProdutos = () => {
-    navigation.navigate('/' as never);
+    navigation.navigate('produtos' as never);
   };
 
   const pagePedidos = () => {
@@ -50,7 +50,7 @@ const NavBar = () => {
             <TouchableOpacity style={NavBarStyle.buttonCarrinho} onPress={pageCarrinho}>
               <Image style={NavBarStyle.imgCarrinho} source={imgcarrinho} />
             </TouchableOpacity>
-            <Text style={isLoggedIn ? NavBarStyle.linkLogin : NavBarStyle.linkDesativado}>
+            <Text style={isLoggedIn ? NavBarStyle.linkLogin : NavBarStyle.linkDesativado} onPress={desativarUsuario}>
               {isLoggedIn ? ' Sair' : ''}
             </Text>
           </View>
